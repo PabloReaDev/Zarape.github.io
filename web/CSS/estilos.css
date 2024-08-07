@@ -1,0 +1,283 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 15 jul 2024, 2:46:51 p.m.
+    Author     : juanp
+*/
+
+/* INICIO SESION */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.background-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:#FEF2E4;
+    background-size: cover;
+    background-position: center;
+}
+
+.col-md-4 {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+
+/* MENU PRINCIPAL */
+
+.menu-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%; 
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+}
+        .menu-container h1 {
+            margin-bottom: 20px;
+        }
+        .menu-button {
+            display: block;
+            width: 100%;
+            padding: 30px;
+            margin-bottom: 10px;
+            background-color: #E73F0B;
+            color: #FFFFFF;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        .menu-button:hover {
+            background-color: #A11F0C;
+        }
+
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 16px;
+}
+
+h1 {
+    color: #FF8C42;
+    font-size: 32px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.main-content {
+    display: flex;
+}
+
+.sidebar {
+    width: 20%;
+    margin-right: 20px;
+}
+
+.sidebar-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.form-container {
+    width: 80%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+input[type="text"], input[type="time"], input[type="url"], input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.mandatory {
+    color: red;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+/* Estilo para las filas de la tabla */
+#tabla-sucursales tr {
+    cursor: pointer; /* Cambia el cursor a pointer al pasar sobre las filas */
+}
+
+/* Estilo para la lista */
+#searchResults li {
+    padding: 10px;
+    cursor: pointer; /* Cambia el cursor a la manita cuando el elemento es clickeable */
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+/* Estilo para el hover sobre la lista */
+#searchResults li:hover {
+    background-color: #f0f0f0; /* Color de fondo al pasar el mouse */
+}
+
+/* Estilo para el clic sobre la lista */
+#searchResults li:active {
+    background-color: #e0e0e0; /* Color de fondo al hacer clic */
+    transform: scale(0.98); /* Efecto de presionado */
+}
+
+
+/* Estilo para las filas al pasar el cursor */
+#tabla-sucursales tr:hover {
+    background-color: #f0f0f0; /* Cambia el color de fondo al pasar sobre las filas */
+}    
+
+/*@ Estilos para Alimentos y bebidas*/
+
+
+.navbar-dark{
+background: rgb(231,63,11);
+background: linear-gradient(90deg, rgba(231,63,11,0.8610375668822217) 0%, rgba(231,63,11,0.8554353259858631) 100%);
+    
+}
+
+
+#btnAgregar, #btnLimpiar, #btnModificar, #btnEliminar,#btnEditar { 
+  /* BUTTON */
+  color: #ecf0f1;
+  font-size: 20px;
+  background: #A11F0C; /* Cambié el color de fondo */
+  border: 2px solid #A11F0C; /* Cambié el color del borde */
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  box-shadow: 0px 6px 0px #710A07; /* Cambié el color de la sombra para que sea un tono más oscuro del fondo */
+} 

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bebidas</title>
+    <link rel="stylesheet" href="../../CSS/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../CSS/estilosCSS.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../Menu_Principal/MenuPrincipal.html">Menú</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" href="../catalogoSucursal/catalogoSucursal.html">Sucursales</a>
+                    <a class="nav-link" href="../catalogoUsuarios/catalogoUsuarios.html">Usuarios</a>
+                    <a class="nav-link active" href="">Bebidas</a>
+                    <a class="nav-link" href="../catalogoAlimentos/catalogoAlimentos.html">Alimentos</a>
+                    <a class="nav-link" href="../catalogoCombos/catalogoCombos.html">Detalle Combo</a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+        <div style="text-align: center;">
+        <h1 class="animate-charcter" >Bebidas</h1>
+        </div>
+        <div class="container">
+            <div class="d-flex justify-content-center mb-4">
+            <select id="searchField" class="form-select w-25">
+                <option value="nombre">Nombre</option>
+                <option value="precio">Precio</option>
+                <option value="categoria">Categoría</option>
+                
+            </select>
+            <input type="text" id="searchInput" class="form-control w-50 ms-2" placeholder="Buscar...">
+            <button class="btn btn-outline-secondary ms-2" onclick="buscarBebidas()">Buscar</button>
+            </div>
+
+            <div class="search-results">
+                <ul id="searchResults" class="list-group">
+                    <!-- Aquí se llenarán los resultados de la búsqueda -->
+                </ul>
+            </div>
+
+          
+            
+            <!-- FILA DE FORMULARIO -->
+            <div class="row">  
+                <!-- COLUMNA DE FORMULARIO -->
+                <div class="col sm-12 lg-6  "> 
+                <form>
+                    <h5>Agregar una nueva bebida</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre de la bebida</label>
+                        <input type="text" class="form-control" id="txtNombre" name="txtNombre" size="50" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Descripción</label>
+                        <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion" size="50" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Precio</label>
+                        <input type="text" class="form-control" id="txtPrecio" name="txtPrecio" required>
+                    </div>
+                  
+                        <label class="form-label" for="txtTipo">Tipo de Bebida:</label>
+                        <select class="form-select" id="txtTipo">
+                            <option value=""></option>
+                            <option value="Refrescos">Refrescos</option>
+                            <option value="Aguas">Aguas</option>
+                            <option value="Frappes">Frappes</option>
+                            <option value="Café">Cafés</option>
+                            <option value="Cervezas">Cervezas</option>
+                        </select>
+                    </div>
+                
+                          <div class="col sm-12 lg-6 "> 
+                  <!--  <h5> Imagen</h5> -->
+                    <img src="img/nada.jpeg"  id="txtFoto"  name="txtFoto" class="rounded" alt="..." width="400">
+                    <label class="form-label">Selecciona la fotografía del producto
+                        <input type="file" class="form-control form-control-sm btn btn-outline-dark" 
+                               id="txtFotoRuta"  name="txtFotoRuta" accept=".jpg, .jpeg, .png" required onchange="despliegaFoto(this.value);" >
+                        
+                    </label>
+                </form>
+
+                </div> 
+            </div>
+             
+            <br>
+            <div class="row">
+                <div class="col ">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-outline-success" id="btnAgregar" onclick="agregarProducto();">Agregar</button>
+                        <button type="button" class="btn btn-outline-info" id="btnLimpiar" onclick="limpiar();">Limpiar</button>
+                        <button type="button" class="btn btn-outline-warning" id="btnModificar" onclick="modificarProducto();">Modificar</button>
+                        <button type="button" class="btn btn-outline-danger" id="btnEliminar" onclick="eliminarProducto();">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+            </div> 
+            <br>
+       
+        
+        <!-- Lista de Productos -->
+        <div class="d-flex justify-content-center"> 
+            <div class="col-10">
+                <h2 class="text-center">Lista de productos</h2>            
+                <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Foto</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Estatus</th>
+                    </tr>
+                </thead>
+                <tbody id="tblProductos">
+                    <!-- Productos se cargarán aquí -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+           
+
+   
+        <script src="catalogoBebidas.js"></script>     
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </body>
+</html>

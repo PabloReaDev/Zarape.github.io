@@ -1,0 +1,14 @@
+[
+    {
+        
+        "name": "Carlos Martinez",
+        "password":"qwerty123456",
+        "estatus":"activo"
+    },
+    {
+        
+        "name": "Laura Fernández",
+        "password":"123456qwerty",
+        "estatus":"activo"
+    }
+]
